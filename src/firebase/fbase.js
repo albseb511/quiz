@@ -19,6 +19,7 @@ export const fbaseapp = firebase.initializeApp( firebaseConfig )
 const db = firebase.firestore();
 export const users = db.collection('users')
 export const categories = db.collection('categories')
+export const questions = db.collection('questions')
 
 firebase.auth().onAuthStateChanged(async (user) => {
     if (user) {
@@ -27,6 +28,8 @@ firebase.auth().onAuthStateChanged(async (user) => {
       var uid = user.uid;
       // redux state
       store.dispatch( loginUserSuccess( user ) )
+      
+      // check if user is in users collection
       const res = await users.doc(uid)
       res.get().then(async(doc)=>{
           if(doc.exists){
@@ -48,7 +51,7 @@ firebase.auth().onAuthStateChanged(async (user) => {
       // ...
     } else {
       // User is signed out
-      // ...
+      // logout
         store.dispatch( logoutUserSuccess( ) )
     }
   });

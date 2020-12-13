@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import { dashboardReducer } from "../routes/Dashboard"
+import { addQuestionReducer } from "../routes/AddQuestion"
+import { viewQuestionsReducer } from "../routes/ViewQuestions"
 import { authReducer } from "../routes/Auth"
 import thunk from "redux-thunk"
 
-const rootReducer = combineReducers( { auth: authReducer,  dashboard: dashboardReducer, } )
+const rootReducer = combineReducers( { auth: authReducer,  dashboard: dashboardReducer, addQuestion: addQuestionReducer, viewQuestions: viewQuestionsReducer } )
 
 
 let composeEnhancers = compose;

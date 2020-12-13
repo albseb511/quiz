@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import {App} from './routes/App';
 import reportWebVitals from './reportWebVitals';
-import { fbaseapp } from './firebase/fbase';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import {store} from "./redux/store.js"
+import 'antd/dist/antd.css';
 
-console.log(store.getState())
 
 ReactDOM.render(
   <React.StrictMode>

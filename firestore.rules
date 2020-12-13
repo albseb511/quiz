@@ -5,5 +5,18 @@ service cloud.firestore {
       allow read: if 
           request.auth.uid != null;
     }
+    match /questions/{doc=**} {
+      allow read: if request.auth.uid != null;
+
+      allow create: if request.auth.uid != null && isAdmin(request.auth.uid);
+    }
+
+    function getUserData(uid){
+      return get(/databases/$(database)/documents/users/$(uid)).data;
+    }
+
+    function isAdmin(uid){
+      return true;
+    }
   }
 }
