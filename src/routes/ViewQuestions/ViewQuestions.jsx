@@ -3,17 +3,6 @@ import React from 'react'
 import {useSelector, useDispatch} from "react-redux";
 import { useParams } from 'react-router-dom';
 import { getQuestions } from './state/action';
-
-const { Option } = Select;
-
-const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  };
-
-const tailLayout = {
-    wrapperCol: { offset: 8, span: 16 },
-  };
   
 
 const ViewQuestions = () => {
@@ -29,7 +18,7 @@ const ViewQuestions = () => {
                 console.log('successss',res)
             })
         }
-    },[dispatch, category, questions])
+    },[dispatch, category, questions, presentCategory])
 
     return (
         <Row justify="center">
