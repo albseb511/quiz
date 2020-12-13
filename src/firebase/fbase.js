@@ -5,7 +5,7 @@ import { store } from "../redux/store";
 import { createUserSuccess, loginUserSuccess, logoutUserSuccess } from "../routes/Auth";
 
 export const firebaseConfig = {
-    apiKey: "AIzaSyBRB6I_zrDlyuIijMiapePCG5vwcM1PbWc",
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "masaiquiz.firebaseapp.com",
     databaseURL: "https://masaiquiz.firebaseio.com",
     projectId: "masaiquiz",
