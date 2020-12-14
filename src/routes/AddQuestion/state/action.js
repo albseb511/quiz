@@ -28,11 +28,11 @@ const addQuestion = (payload) => (dispatch) => {
     })
     .then(res=>{
         dispatch(addQuestionSuccess(res))
-        return res
+        return true
     })
     .catch(err=>{
         dispatch(addQuestionFailure(err))
-        return err
+        return false
     })
 }
 

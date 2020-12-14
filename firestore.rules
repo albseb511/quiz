@@ -16,7 +16,7 @@ service cloud.firestore {
     }
 
     function isAdmin(uid){
-      return true;
+      return getUserData(uid).roles.admin == true;
     }
   }
 }

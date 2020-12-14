@@ -43,7 +43,9 @@ firebase.auth().onAuthStateChanged(async (user) => {
               email: user.email,
               photoURL: user.photoURL,
               createdAt: serverTimestamp(),
-              roles: ['user']
+              roles: {
+                user: true
+              }
             })
             store.dispatch( createUserSuccess({uid, name:user.displayName, email: user.email }) )
           }

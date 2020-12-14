@@ -1,4 +1,4 @@
-import { Input,  Select, Form, Row, Col, Button, message } from 'antd'
+import { Row, Col } from 'antd'
 import React from 'react'
 import {useSelector, useDispatch} from "react-redux";
 import { useParams } from 'react-router-dom';
@@ -14,9 +14,6 @@ const ViewQuestions = () => {
     React.useEffect(()=>{
         if( !questions || category !== presentCategory ){
             dispatch(getQuestions(category))
-            .then(res=>{
-                console.log('successss',res)
-            })
         }
     },[dispatch, category, questions, presentCategory])
 

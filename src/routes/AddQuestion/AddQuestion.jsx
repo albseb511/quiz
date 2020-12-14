@@ -33,10 +33,10 @@ const AddQuestion = () => {
         data.type = 1
         dispatch(addQuestion(data))
         .then(res=>{
-            message.success('Success')
+             res?message.success('Success'):message.error('No Permission')
+
         })
         .catch(err=>{
-            console.log(err)
             message.error('Something went wrong' + err.message)
         })
     }

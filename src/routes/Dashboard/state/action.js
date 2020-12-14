@@ -1,4 +1,4 @@
-import { fbaseapp,categories } from '../../../firebase/fbase'
+import { categories } from '../../../firebase/fbase'
 import * as dashboardConstants from './actionTypes'
 
 const getCategoryRequest = (payload) => ({
