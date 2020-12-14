@@ -1,4 +1,5 @@
 import React from 'react'
+import {Row} from "antd"
 import { Route, Switch } from 'react-router-dom'
 import {PrivateRoutes} from '../common'
 import {Dashboard} from '../Dashboard'
@@ -8,7 +9,7 @@ import { ViewQuestions } from '../ViewQuestions'
 
 const App = () => {
     return (
-        <div>
+        <>
             <Switch>
                 <PrivateRoutes path="/" exact>
                     <Dashboard />
@@ -23,7 +24,7 @@ const App = () => {
                     <Login />
                 </Route>
             </Switch>
-        </div>
+        </>
     )
 }
 

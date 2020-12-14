@@ -1,3 +1,4 @@
+import { Mentions } from 'antd';
 import { Input,  Select, Form, Row, Col, Button, message } from 'antd'
 import TextArea from 'antd/lib/input/TextArea';
 import React from 'react'
@@ -29,7 +30,9 @@ const AddQuestion = () => {
     },[dispatch])
 
     const onSubmit = (data) => {
+        console.log(data)
         // add a new question
+        // type 1 question only exists
         data.type = 1
         dispatch(addQuestion(data))
         .then(res=>{
@@ -59,6 +62,16 @@ const AddQuestion = () => {
                     </Form.Item>
                     <Form.Item label="Answer" name="answer">
                         <TextArea allowClear /> 
+                    </Form.Item>
+                    <Form.Item label="tags" name="tags">
+                        <Mentions onSelect={e=>console.log(e)} prefix={['#']}>
+                            <Option value={'style'}>
+                                style
+                            </Option>
+                            <Option value={'b'}>
+                                b
+                            </Option>
+                        </Mentions>
                     </Form.Item>
                     <Form.Item {...tailLayout}>
                         <Button type="primary" htmlType="submit">

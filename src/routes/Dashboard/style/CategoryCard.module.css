@@ -1,0 +1,9 @@
+.categoryCard{
+    background: #fc5c7d!important; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fc5c7d, #6a82fb)!important; /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fc5c7d, #6a82fb)!important; /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    border-radius: 10px!important;
+    margin: 40px!important;
+    margin-bottom:20px!important;
+    padding-top: 50px!important;
+}
