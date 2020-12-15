@@ -1,5 +1,4 @@
-import {addQuestionReducer} from "./state/reducer"
-export {AddQuestion} from "./AddQuestion";
+import { addQuestionReducer } from "./state/reducer";
+export { AddQuestion } from "./AddQuestion";
 
-
-export {addQuestionReducer} 
+export { addQuestionReducer };
