@@ -30,7 +30,12 @@ const useStyles = makeStyles({
   content:{ 
     overflow: "auto", 
     padding: '3rem', 
-    background:"#212121"
+    background:"#212121",
+    "& > :first-child":{
+        background:"#cecece",
+        borderRadius: 20,
+        padding: '3rem',
+    }
    }
 });
 
@@ -40,30 +45,35 @@ const links = [
     icon: <HomeOutlined />,
     title: "HOME",
     path: "/",
+    hidden: false
   },
   {
     key: "search",
     icon: <SettingOutlined />,
     title: "SEARCH",
     path: "/search",
+    hidden: true
   },
   {
     key: "add-question",
     icon: <FileAddOutlined />,
     title: "ADD QUESTION",
     path: "/add-question",
+    hidden: false
   },
   {
     key: "tags",
     icon: <TagsOutlined />,
     title: "TAGS",
     path: "/tags",
+    hidden: true
   },
   {
     key: "user",
     icon: <SettingOutlined />,
     title: "USER",
     path: "/user",
+    hidden: true
   },
 ];
 
@@ -101,7 +111,7 @@ const PrivateRoutes = ({ path, exact, children }) => {
       <Layout style={{ height: "100vh" }}>
         <Sider collapsed={true} className={classes.sider} collapsedWidth={width}>
           <Menu className={classes.menu} mode="inline">
-            {links.map((item) => (
+            {links.map((item) => ( !item.hidden &&
               <Menu.Item
                 onClick={() => handleMenuClick(item.path)}
                 key={item.key}
@@ -122,7 +132,7 @@ const PrivateRoutes = ({ path, exact, children }) => {
         <Layout>
           <Content className={classes.content}>
             <Route path={path} exact={exact}>
-              {children}
+                {children}
             </Route>
           </Content>
         </Layout>
