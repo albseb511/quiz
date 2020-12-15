@@ -8,10 +8,12 @@ import {
   SettingOutlined,
   FileAddOutlined,
   SearchOutlined,
+  LogoutOutlined
 } from "@ant-design/icons";
 import { makeStyles } from "@material-ui/styles";
+import { fbaseapp } from "../../../firebase/fbase";
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content,  Sider } = Layout;
 
 const width = 80;
 
@@ -22,6 +24,14 @@ const useStyles = makeStyles({
   menu: {
     width: width,
   },
+  sider:{
+    background:"black"
+   },
+  content:{ 
+    overflow: "auto", 
+    padding: '3rem', 
+    background:"#212121"
+   }
 });
 
 const links = [
@@ -74,10 +84,22 @@ const PrivateRoutes = ({ path, exact, children }) => {
     history.push(path);
   };
 
+  const logout = () => {
+    fbaseapp
+      .auth()
+      .signOut()
+      .then(function () {
+        // Sign-out successful.
+      })
+      .catch(function (error) {
+        // An error happened.
+      });
+  };
+
   return (
     <>
       <Layout style={{ height: "100vh" }}>
-        <Sider collapsed={true} collapsedWidth={width}>
+        <Sider collapsed={true} className={classes.sider} collapsedWidth={width}>
           <Menu className={classes.menu} mode="inline">
             {links.map((item) => (
               <Menu.Item
@@ -88,10 +110,17 @@ const PrivateRoutes = ({ path, exact, children }) => {
                 {item.title}
               </Menu.Item>
             ))}
+            <Menu.Item
+                onClick={logout}
+                key="logout"
+                icon={<LogoutOutlined />}
+            >
+                LOGOUT
+            </Menu.Item>
           </Menu>
         </Sider>
         <Layout>
-          <Content style={{ overflow: "auto" }}>
+          <Content className={classes.content}>
             <Route path={path} exact={exact}>
               {children}
             </Route>
