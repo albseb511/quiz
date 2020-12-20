@@ -25,3 +25,6 @@ This project uses:
     - see `.env.example` and rename to `.env` and fill in required information from firebase app
 1. you can install firebase cli and use cli tools to deploy firebase rules etc
     - for ex. `firebase deploy --only firestore:rules`
+
+### contribution
+- raise PRs into the develop branch
